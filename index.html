@@ -1,277 +1,298 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kopi Senja | Klasik & Estetik</title>
+    <title>Tasty Design | Premium Pizza & Burger</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables untuk Tema Warna */
         :root {
-            --primary: #4a3728; /* Coklat Tua */
-            --secondary: #8d6e63; /* Coklat Hangat */
-            --accent: #d4a373; /* Gold/Cream */
-            --bg-light: #faf3e0; /* Cream Muda */
-            --text-dark: #2d241e;
+            --primary-orange: #f36f21;
+            --dark-red: #8b0000;
+            --bg-dark: #1a0a0a;
+            --bg-cream: #f9f5f0;
+            --text-dark: #333;
             --white: #ffffff;
+            --transition: all 0.4s ease;
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bg-cream);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        /* --- Global Components --- */
         .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--white);
             padding: 12px 30px;
             border-radius: 50px;
-            transition: 0.3s ease;
-            font-weight: 600;
-            border: 2px solid var(--primary);
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .btn:hover {
-            background: transparent;
-            color: var(--primary);
+        .btn-orange {
+            background: linear-gradient(to right, #f36f21, #e65100);
+            color: white;
+            box-shadow: 0 4px 15px rgba(243, 111, 33, 0.4);
+        }
+
+        .btn-orange:hover {
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(243, 111, 33, 0.6);
         }
 
-        /* Navbar */
+        /* --- Navbar --- */
         nav {
-            position: fixed;
+            position: absolute;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(250, 243, 224, 0.95);
-            padding: 20px 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 10%;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
+            font-family: 'Pacifico', cursive;
+            color: white;
+            font-size: 1.8rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--secondary);
+            opacity: 1;
         }
 
-        /* Hero Section */
-        #hero {
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            min-height: 700px;
+            background: radial-gradient(circle at 70%, #4a0e0e 0%, #1a0a0a 100%);
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
+            padding: 0 10%;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero-content span {
+            color: var(--primary-orange);
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin: 10px 0 20px 0;
+            text-transform: uppercase;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            max-width: 450px;
             margin-bottom: 30px;
-            font-weight: 300;
+            opacity: 0.8;
+            line-height: 1.6;
         }
 
-        /* About Section */
-        #about {
-            padding: 100px 0;
+        .hero-images {
+            flex: 1;
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-burger {
+            width: 100%;
+            max-width: 600px;
+            z-index: 2;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pizza-base {
+            position: absolute;
+            bottom: -50px;
+            right: -100px;
+            width: 120%;
+            z-index: 1;
+            opacity: 0.9;
+            transform: rotate(-5deg);
+        }
+
+        /* --- Feature Section --- */
+        .feature {
+            background-color: var(--bg-cream);
+            padding: 100px 10%;
             text-align: center;
+            position: relative;
+        }
+
+        .feature h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .feature p {
+            max-width: 600px;
+            margin: 20px auto 40px;
+            color: #666;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 50px;
+            pointer-events: none;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        /* --- Showcase Section --- */
+        .showcase {
+            background-color: #f36f21;
+            padding: 80px 10% 120px 10%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            position: relative;
+            gap: 20px;
+        }
+
+        .showcase::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #f36f21;
+            border-radius: 50% 50% 0 0;
+            transform: scaleX(1.2);
+        }
+
+        .showcase-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            max-width: 300px;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+        }
+
+        .showcase-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Card Section --- */
+        .popular {
+            padding: 80px 10%;
+            background-color: var(--bg-cream);
         }
 
         .section-title {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 50px;
         }
 
-        .about-text {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #666;
-        }
-
-        /* Menu Section */
-        #menu {
-            padding: 100px 0;
-            background-color: #f2e8d5;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .menu-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .menu-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .menu-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .menu-card h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .price {
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Gallery Section */
-        #gallery {
-            padding: 100px 0;
-        }
-
-        .gallery-grid {
+        .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 30px;
         }
 
-        .gallery-item {
-            height: 250px;
-            overflow: hidden;
-            border-radius: 10px;
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            transition: 0.5s;
-            filter: grayscale(30%);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid var(--bg-cream);
         }
 
-        .gallery-item img:hover {
-            transform: scale(1.1);
-            filter: grayscale(0%);
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        /* Contact Section */
-        #contact {
-            padding: 100px 0;
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
+        .card p {
+            font-size: 0.85rem;
+            color: #777;
             margin-bottom: 20px;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .card .price {
+            font-weight: 900;
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+            display: block;
             margin-bottom: 15px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
+        /* --- Animations --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
-        .social-links i {
-            width: 24px;
-            height: 24px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            padding: 30px 0;
-            text-align: center;
-            background: #382a1f;
-            color: #8d6e63;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -283,148 +304,123 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Sederhana: sembunyikan menu di mobile */
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+                height: auto;
             }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content p { margin: 0 auto 30px; }
+            .pizza-base { width: 150%; right: -25%; bottom: -100px; }
+            nav { padding: 20px 5%; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <!-- <nav>
-        <div class="container">
-            <a href="#" class="logo">Kopi Senja.</a>
-            <ul class="nav-links">
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Galeri</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </div>
-    </nav> -->
+    <nav>
+        <div class="logo">Tasty Design</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn btn-orange">Register Now</a>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="reveal">Nikmati Setiap Detik</h1>
-            <p class="reveal">Temukan ketenangan dalam secangkir kopi di tengah riuhnya suasana senja.</p>
-            <a href="https://wa.me/628123456789" class="btn reveal">Order Now</a>
+            <span>Tasty Design</span>
+            <h1>PIZZA & <br>BURGER</h1>
+            <p>Experience the perfect fusion of premium ingredients and expert craftsmanship. The ultimate comfort food delivered to your doorstep.</p>
+            <a href="#" class="btn btn-orange">Order Now</a>
+        </div>
+        <div class="hero-images">
+            <!-- Reference Style: Burger on top of a pizza surface -->
+            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Premium Burger" class="main-burger">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80" alt="Pizza Base" class="pizza-base">
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title reveal">Tentang Kami</h2>
-            <p class="about-text reveal">
-                Kopi Senja bukan sekadar tempat minum kopi. Kami adalah ruang temu bagi jiwa-jiwa yang mencari inspirasi, ketenangan, dan rasa yang otentik. Biji kopi kami dipilih dari petani lokal terbaik dan disangrai dengan penuh cinta.
-            </p>
+    <!-- Feature Section -->
+    <section class="feature">
+        <!-- Floating decorative elements -->
+        <img src="https://cdn-icons-png.flaticon.com/512/1135/1135501.png" class="floating-element" style="top: 10%; left: 15%; transform: rotate(15deg);">
+        <img src="https://cdn-icons-png.flaticon.com/512/723/723650.png" class="floating-element" style="bottom: 20%; right: 10%; transform: rotate(-20deg);">
+        
+        <div class="reveal">
+            <h2>FRESH, HOT & DELICIOUS</h2>
+            <p>Our ingredients are sourced daily from local farms to ensure every bite is packed with natural flavor and high-quality nutrition.</p>
+            <a href="#" class="btn btn-orange">Explore Menu</a>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu">
-        <div class="container">
-            <h2 class="section-title reveal" style="text-align: center;">Menu Pilihan</h2>
-            <div class="menu-grid">
-                <!-- Menu 1 -->
-                <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80" alt="Latte">
-                    <h3>Senja Latte</h3>
-                    <p>Espresso lembut dengan susu creamy dan sentuhan vanilla.</p>
-                    <p class="price">Rp 28.000</p>
-                </div>
-                <!-- Menu 2 -->
-                <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Black Coffee">
-                    <h3>Americano Klasik</h3>
-                    <p>Biji kopi Arabika murni untuk semangat pagi Anda.</p>
-                    <p class="price">Rp 22.000</p>
-                </div>
-                <!-- Menu 3 -->
-                <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e13d?auto=format&fit=crop&w=500&q=80" alt="Croissant">
-                    <h3>Butter Croissant</h3>
-                    <p>Pastry renyah yang sempurna menemani kopi Anda.</p>
-                    <p class="price">Rp 25.000</p>
-                </div>
-                <!-- Menu 4 -->
-                <div class="menu-card reveal">
-                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Mocha">
-                    <h3>Caramel Macchiato</h3>
-                    <p>Paduan espresso, susu, dan sirup karamel premium.</p>
-                    <p class="price">Rp 32.000</p>
-                </div>
+    <!-- Product Showcase -->
+    <section class="showcase">
+        <div class="showcase-item reveal">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger 1">
+        </div>
+        <div class="showcase-item reveal" style="transition-delay: 0.2s;">
+            <img src="https://images.unsplash.com/photo-1550317143-b3015df391d8?auto=format&fit=crop&w=500&q=80" alt="Burger 2">
+        </div>
+        <div class="showcase-item reveal" style="transition-delay: 0.4s;">
+            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7443b?auto=format&fit=crop&w=500&q=80" alt="Burger 3">
+        </div>
+    </section>
+
+    <!-- Card Section -->
+    <section class="popular">
+        <h2 class="section-title">Popular Items</h2>
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card reveal">
+                <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=300&q=80" alt="French Fries">
+                <h3>Golden Fries</h3>
+                <p>Crispy hand-cut potatoes with sea salt and rosemary.</p>
+                <span class="price">$5.99</span>
+                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1594000199163-247904cb6b5f?auto=format&fit=crop&w=300&q=80" alt="Special Burger">
+                <h3>Monster Beef</h3>
+                <p>Double patty with aged cheddar and special sauce.</p>
+                <span class="price">$12.99</span>
+                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c170db06?auto=format&fit=crop&w=300&q=80" alt="Onion Rings">
+                <h3>Onion Rings</h3>
+                <p>Deep-fried golden rings served with spicy mayo.</p>
+                <span class="price">$6.49</span>
+                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            </div>
+            <!-- Card 4 -->
+            <div class="card reveal" style="transition-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80" alt="Classic Pizza">
+                <h3>Classic Pizza</h3>
+                <p>Fresh mozzarella, basil, and tomato sauce.</p>
+                <span class="price">$14.99</span>
+                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-title reveal" style="text-align: center;">Sudut Senja</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=500&q=80" alt="Cafe 1"></div>
-                <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1559925393-8be0ec418cd9?auto=format&fit=crop&w=500&q=80" alt="Cafe 2"></div>
-                <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=500&q=80" alt="Cafe 3"></div>
-                <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="Cafe 4"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info reveal">
-                    <h3>Kunjungi Kami</h3>
-                    <div class="info-item">
-                        <i data-lucide="map-pin"></i>
-                        <span>Jl. Melati No. 123, Jakarta Selatan</span>
-                    </div>
-                    <div class="info-item">
-                        <i data-lucide="clock"></i>
-                        <span>Setiap Hari: 08:00 - 22:00</span>
-                    </div>
-                    <div class="info-item">
-                        <i data-lucide="phone"></i>
-                        <span>+62 812 3456 789</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="facebook"></i></a>
-                        <a href="https://wa.me/628123456789"><i data-lucide="message-circle"></i></a>
-                    </div>
-                </div>
-                <div class="contact-map reveal">
-                    <!-- Placeholder untuk Map (Iframe bisa dimasukkan di sini) -->
-                    <div style="width: 100%; height: 250px; background: #5d4037; border-radius: 15px; display: flex; align-items: center; justify-content: center;">
-                        <p style="color: #d4a373;">[ Peta Google Maps ]</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Kopi Senja. Dibuat dengan penuh rasa hangat.</p>
-        </div>
+    <footer style="text-align: center; padding: 40px; background: #1a0a0a; color: white; opacity: 0.7; font-size: 0.8rem;">
+        &copy; 2023 Tasty Design. All rights reserved.
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Inisialisasi Ikon Lucide
-        lucide.createIcons();
-
-        // Scroll Reveal Animation
+        // Reveal animation on scroll
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -438,20 +434,15 @@
         }
 
         window.addEventListener("scroll", reveal);
+        
+        // Trigger once on load
+        reveal();
 
-        // Menjalankan fungsi sekali saat load untuk elemen di atas
-        window.onload = reveal;
-
-        // Navbar scroll effect
-        window.addEventListener("scroll", function() {
-            const nav = document.querySelector("nav");
-            if (window.scrollY > 50) {
-                nav.style.padding = "10px 0";
-                nav.style.background = "#faf3e0";
-            } else {
-                nav.style.padding = "20px 0";
-                nav.style.background = "rgba(250, 243, 224, 0.95)";
-            }
+        // Parallax effect for hero food
+        window.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.main-burger').style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
     </script>
 </body>
