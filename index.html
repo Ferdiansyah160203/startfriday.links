@@ -3,296 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasty Design | Premium Pizza & Burger</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Tasty Design | Pizza & Burgers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --primary-orange: #f36f21;
-            --dark-red: #8b0000;
-            --bg-dark: #1a0a0a;
-            --bg-cream: #f9f5f0;
-            --text-dark: #333;
-            --white: #ffffff;
-            --transition: all 0.4s ease;
+            --primary-red: #b91c1c;
+            --primary-orange: #f97316;
+            --dark-bg: #1a0f0a;
+            --cream-bg: #fdf8f1;
+            --text-dark: #2d1b14;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--bg-cream);
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* --- Global Components --- */
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-orange {
-            background: linear-gradient(to right, #f36f21, #e65100);
-            color: white;
-            box-shadow: 0 4px 15px rgba(243, 111, 33, 0.4);
-        }
-
-        .btn-orange:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(243, 111, 33, 0.6);
-        }
-
-        /* --- Navbar --- */
-        nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Pacifico', cursive;
-            color: white;
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            background: radial-gradient(circle at 70%, #4a0e0e 0%, #1a0a0a 100%);
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            flex: 1;
-            color: white;
-            z-index: 2;
-        }
-
-        .hero-content span {
-            color: var(--primary-orange);
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .hero-content h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin: 10px 0 20px 0;
-            text-transform: uppercase;
-        }
-
-        .hero-content p {
-            max-width: 450px;
-            margin-bottom: 30px;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        .hero-images {
-            flex: 1;
-            position: relative;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .main-burger {
-            width: 100%;
-            max-width: 600px;
-            z-index: 2;
-            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .pizza-base {
-            position: absolute;
-            bottom: -50px;
-            right: -100px;
-            width: 120%;
-            z-index: 1;
-            opacity: 0.9;
-            transform: rotate(-5deg);
-        }
-
-        /* --- Feature Section --- */
-        .feature {
-            background-color: var(--bg-cream);
-            padding: 100px 10%;
-            text-align: center;
-            position: relative;
-        }
-
-        .feature h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--text-dark);
-            text-transform: uppercase;
-        }
-
-        .feature p {
-            max-width: 600px;
-            margin: 20px auto 40px;
-            color: #666;
-        }
-
-        .floating-element {
-            position: absolute;
-            width: 50px;
-            pointer-events: none;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-        }
-
-        /* --- Showcase Section --- */
-        .showcase {
-            background-color: #f36f21;
-            padding: 80px 10% 120px 10%;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            position: relative;
-            gap: 20px;
-        }
-
-        .showcase::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background-color: #f36f21;
-            border-radius: 50% 50% 0 0;
-            transform: scaleX(1.2);
-        }
-
-        .showcase-item {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .showcase-item img {
-            width: 100%;
-            max-width: 300px;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
-        }
-
-        .showcase-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* --- Card Section --- */
-        .popular {
-            padding: 80px 10%;
-            background-color: var(--bg-cream);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 50px;
-        }
-
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .card img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 5px solid var(--bg-cream);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        .card .price {
-            font-weight: 900;
-            color: var(--primary-orange);
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 15px;
-        }
-
         /* --- Animations --- */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -304,145 +42,446 @@
             transform: translateY(0);
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-                height: auto;
-            }
-            .hero-content h1 { font-size: 3.5rem; }
-            .hero-content p { margin: 0 auto 30px; }
-            .pizza-base { width: 150%; right: -25%; bottom: -100px; }
-            nav { padding: 20px 5%; }
-            .nav-links { display: none; }
+        /* --- Navigation --- */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 10%;
+            z-index: 100;
         }
+
+        .logo {
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary-orange); }
+
+        .btn-register {
+            background: #facc15;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            color: black;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(to bottom, #2d1b14, #1a0f0a);
+            min-height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 10;
+            color: white;
+            padding-bottom: 5rem;
+        }
+
+        .hero-label {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            max-width: 400px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+
+        .btn-order {
+            background: var(--primary-red);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(185, 28, 28, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-order:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(185, 28, 28, 0.4);
+        }
+
+        .hero-images {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .main-burger {
+            width: 100%;
+            max-width: 600px;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-pizza-base {
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* --- Feature Section --- */
+        .feature-section {
+            background-color: var(--cream-bg);
+            padding: 10rem 10% 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Torn Edge Effect */
+        .feature-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--cream-bg);
+            clip-path: polygon(0% 100%, 5% 80%, 10% 100%, 15% 70%, 20% 100%, 25% 75%, 30% 100%, 35% 85%, 40% 100%, 45% 70%, 50% 100%, 55% 80%, 60% 100%, 65% 75%, 70% 100%, 75% 85%, 80% 100%, 85% 70%, 90% 100%, 95% 80%, 100% 100%, 100% 0%, 0% 0%);
+            z-index: 20;
+        }
+
+        .feature-section h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .feature-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.7;
+        }
+
+        .floating-elem {
+            position: absolute;
+            width: 60px;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        /* --- Product Showcase --- */
+        .showcase-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, var(--cream-bg) 0%, #fff 100%);
+            position: relative;
+        }
+
+        .orange-splash {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background: var(--primary-orange);
+            transform: translateY(-50%) skewY(-2deg);
+            z-index: 1;
+        }
+
+        .burger-grid {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0 5%;
+        }
+
+        .burger-item {
+            flex: 1;
+            max-width: 350px;
+            transition: var(--transition);
+        }
+
+        .burger-item:hover { transform: scale(1.05); }
+
+        .burger-item img {
+            width: 100%;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+        }
+
+        /* --- Menu Cards --- */
+        .menu-section {
+            padding: 8rem 10%;
+        }
+
+        .menu-section h2 {
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h3 { margin-bottom: 0.5rem; }
+        .card p { font-size: 0.8rem; opacity: 0.6; margin-bottom: 1rem; }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .price { font-weight: 900; color: var(--primary-red); font-size: 1.2rem; }
+        
+        .add-btn {
+            background: #eee;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; padding-top: 120px; text-align: center; }
+            .hero-content { padding-bottom: 2rem; }
+            .hero-images { position: relative; width: 100%; right: 0; transform: none; top: 0; }
+            .burger-grid { flex-direction: column; align-items: center; }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-pizza-base { width: 200%; }
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
         <div class="logo">Tasty Design</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Reviews</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <a href="#" class="btn btn-orange">Register Now</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Foods</a>
+            <a href="#">Drinks</a>
+            <a href="#">News</a>
+            <a href="#">Location</a>
+        </div>
+        <a href="#" class="btn-register">Register Now</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span>Tasty Design</span>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content reveal">
+            <span class="hero-label">Tasty Design</span>
             <h1>PIZZA & <br>BURGER</h1>
-            <p>Experience the perfect fusion of premium ingredients and expert craftsmanship. The ultimate comfort food delivered to your doorstep.</p>
-            <a href="#" class="btn btn-orange">Order Now</a>
+            <p>Experience the perfect blend of smoky grilled beef and artisanal wood-fired crusts. Fresh ingredients, delivered hot.</p>
+            <a href="#" class="btn-order">Order Now</a>
         </div>
-        <div class="hero-images">
-            <!-- Reference Style: Burger on top of a pizza surface -->
-            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80" alt="Premium Burger" class="main-burger">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80" alt="Pizza Base" class="pizza-base">
-        </div>
-    </section>
 
-    <!-- Feature Section -->
-    <section class="feature">
-        <!-- Floating decorative elements -->
-        <img src="https://cdn-icons-png.flaticon.com/512/1135/1135501.png" class="floating-element" style="top: 10%; left: 15%; transform: rotate(15deg);">
-        <img src="https://cdn-icons-png.flaticon.com/512/723/723650.png" class="floating-element" style="bottom: 20%; right: 10%; transform: rotate(-20deg);">
+        <div class="hero-images">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800" alt="Burger" class="main-burger">
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=1200" alt="Pizza" class="hero-pizza-base">
+    </header>
+
+    <!-- FEATURE SECTION -->
+    <section class="feature-section">
+        <img src="https://pngimg.com/uploads/spinach/spinach_PNG10.png" class="floating-elem" style="top: 10%; left: 15%;" alt="">
+        <img src="https://pngimg.com/uploads/tomato/tomato_PNG12592.png" class="floating-elem" style="bottom: 10%; right: 10%;" alt="">
         
         <div class="reveal">
-            <h2>FRESH, HOT & DELICIOUS</h2>
-            <p>Our ingredients are sourced daily from local farms to ensure every bite is packed with natural flavor and high-quality nutrition.</p>
-            <a href="#" class="btn btn-orange">Explore Menu</a>
+            <h2>FRESH, HOT & TASTY</h2>
+            <p>Our ingredients are sourced daily from local farmers to ensure every bite is bursting with flavor and nutrition. No compromises, just pure taste.</p>
+            <a href="#" class="btn-order" style="background: var(--primary-orange);">Explore Menu</a>
         </div>
     </section>
 
-    <!-- Product Showcase -->
-    <section class="showcase">
-        <div class="showcase-item reveal">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger 1">
-        </div>
-        <div class="showcase-item reveal" style="transition-delay: 0.2s;">
-            <img src="https://images.unsplash.com/photo-1550317143-b3015df391d8?auto=format&fit=crop&w=500&q=80" alt="Burger 2">
-        </div>
-        <div class="showcase-item reveal" style="transition-delay: 0.4s;">
-            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7443b?auto=format&fit=crop&w=500&q=80" alt="Burger 3">
+    <!-- PRODUCT SHOWCASE -->
+    <section class="showcase-section">
+        <div class="orange-splash"></div>
+        <div class="burger-grid reveal">
+            <div class="burger-item">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&q=80&w=600" alt="Burger 1">
+            </div>
+            <div class="burger-item">
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=600" alt="Burger 2">
+            </div>
+            <div class="burger-item">
+                <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&q=80&w=600" alt="Burger 3">
+            </div>
         </div>
     </section>
 
-    <!-- Card Section -->
-    <section class="popular">
-        <h2 class="section-title">Popular Items</h2>
-        <div class="card-container">
+    <!-- MENU SECTION -->
+    <section class="menu-section">
+        <h2 class="reveal">Popular Items</h2>
+        <div class="menu-grid">
             <!-- Card 1 -->
             <div class="card reveal">
-                <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=300&q=80" alt="French Fries">
-                <h3>Golden Fries</h3>
-                <p>Crispy hand-cut potatoes with sea salt and rosemary.</p>
-                <span class="price">$5.99</span>
-                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1561719444-48550171e245?auto=format&fit=crop&q=80&w=400" alt="Fries">
+                </div>
+                <h3>Classic Fries</h3>
+                <p>Crispy golden fries seasoned with sea salt and rosemary.</p>
+                <div class="card-footer">
+                    <span class="price">$12.00</span>
+                    <div class="add-btn"><i data-lucide="plus"></i></div>
+                </div>
             </div>
             <!-- Card 2 -->
-            <div class="card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1594000199163-247904cb6b5f?auto=format&fit=crop&w=300&q=80" alt="Special Burger">
-                <h3>Monster Beef</h3>
-                <p>Double patty with aged cheddar and special sauce.</p>
-                <span class="price">$12.99</span>
-                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            <div class="card reveal">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512152272829-e3139592d56f?auto=format&fit=crop&q=80&w=400" alt="Combo">
+                </div>
+                <h3>Maxi Combo</h3>
+                <p>Triple beef patty with extra cheddar and house sauce.</p>
+                <div class="card-footer">
+                    <span class="price">$24.00</span>
+                    <div class="add-btn"><i data-lucide="plus"></i></div>
+                </div>
             </div>
             <!-- Card 3 -->
-            <div class="card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c170db06?auto=format&fit=crop&w=300&q=80" alt="Onion Rings">
-                <h3>Onion Rings</h3>
-                <p>Deep-fried golden rings served with spicy mayo.</p>
-                <span class="price">$6.49</span>
-                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            <div class="card reveal">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c170dbbd?auto=format&fit=crop&q=80&w=400" alt="Nuggets">
+                </div>
+                <h3>Alneo Nuggets</h3>
+                <p>Hand-breaded chicken breast with honey mustard dip.</p>
+                <div class="card-footer">
+                    <span class="price">$18.00</span>
+                    <div class="add-btn"><i data-lucide="plus"></i></div>
+                </div>
             </div>
             <!-- Card 4 -->
-            <div class="card reveal" style="transition-delay: 0.3s;">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80" alt="Classic Pizza">
-                <h3>Classic Pizza</h3>
-                <p>Fresh mozzarella, basil, and tomato sauce.</p>
-                <span class="price">$14.99</span>
-                <a href="#" class="btn btn-orange" style="padding: 8px 20px; font-size: 0.8rem;">Add to Cart</a>
+            <div class="card reveal">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?auto=format&fit=crop&q=80&w=400" alt="Pizza">
+                </div>
+                <h3>Peperoni Mix</h3>
+                <p>Spicy pepperoni with mozzarella and fresh basil.</p>
+                <div class="card-footer">
+                    <span class="price">$21.00</span>
+                    <div class="add-btn"><i data-lucide="plus"></i></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 40px; background: #1a0a0a; color: white; opacity: 0.7; font-size: 0.8rem;">
-        &copy; 2023 Tasty Design. All rights reserved.
-    </footer>
-
     <script>
-        // Reveal animation on scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
-            }
-        }
+            });
+        }, observerOptions);
 
-        window.addEventListener("scroll", reveal);
-        
-        // Trigger once on load
-        reveal();
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Parallax effect for hero food
+        // Subtle Parallax for hero burger
         window.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-            document.querySelector('.main-burger').style.transform = `translate(${moveX}px, ${moveY}px)`;
+            const burger = document.querySelector('.main-burger');
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+            burger.style.transform = `translate(${x}px, ${y}px)`;
         });
     </script>
 </body>
